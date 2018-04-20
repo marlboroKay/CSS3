@@ -1,83 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>Slider</title>
-	<style type="text/css">
-    * {
-      -webkit-box-sizing: border-box;
-      -moz-box-sizing: border-box;
-      -ms-box-sizing: border-box;
-      box-sizing: border-box;
-    }
-    #slider {
-      max-width: 600px;
-      text-align: center;
-      margin: 0 auto;
-    }
-    #overflow {
-      width: 100%;
-      overflow: hidden;
-    }
-    #slides .inner {
-      width: 500%;
-    }
-    #slides .inner {
-      -webkit-transform: translateZ(0);
-      -moz-transform: translateZ(0);
-      -o-transform: translateZ(0);
-      -ms-transform: translateZ(0);
-      transform: translateZ(0);
-      -webkit-transition: all 800ms cubic-bezier(0.770, 0.000, 0.175, 1.000);
-      -moz-transition: all 800ms cubic-bezier(0.770, 0.000, 0.175, 1.000);
-      -o-transition: all 800ms cubic-bezier(0.770, 0.000, 0.175, 1.000);
-      -ms-transition: all 800ms cubic-bezier(0.770, 0.000, 0.175, 1.000);
-      transition: all 800ms cubic-bezier(0.770, 0.000, 0.175, 1.000);
-      -webkit-transition-timing-function: cubic-bezier(0.770, 0.000, 0.175, 1.000);
-      -moz-transition-timing-function: cubic-bezier(0.770, 0.000, 0.175, 1.000);
-      -o-transition-timing-function: cubic-bezier(0.770, 0.000, 0.175, 1.000);
-      -ms-transition-timing-function: cubic-bezier(0.770, 0.000, 0.175, 1.000);
-      transition-timing-function: cubic-bezier(0.770, 0.000, 0.175, 1.000);
-    }
-    #slides img {
-      width: 20%;
-      height: 400px;
-      float: left;
-    }
-    #slide1:checked ~ #slides .inner {
-      margin-left: 0;
-    }
-    #slide2:checked ~ #slides .inner {
-      margin-left: -100%;
-    }
-    #slide3:checked ~ #slides .inner {
-      margin-left: -200%;
-    }
-    #slide4:checked ~ #slides .inner {
-      margin-left: -300%;
-    }
-    #slide5:checked ~ #slides .inner {
-      margin-left: -400%;
-    }
-    input[type="radio"] {
-      display: none;
-    }
-    label {
-      background: #CCC;
-      display: inline-block;
-      cursor: pointer;
-      width: 10px;
-      height: 10px;
-      border-radius: 5px;
-    }
-    #slide1:checked ~ label[for="slide1"],
-    #slide2:checked ~ label[for="slide2"],
-    #slide3:checked ~ label[for="slide3"],
-    #slide4:checked ~ label[for="slide4"],
-    #slide5:checked ~ label[for="slide5"] {
-      background: #333;
-    }
-	</style>
+<meta charset="UTF-8">
+<title>Slider</title>
+<style type="text/css">
+ * {
+-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
+-ms-box-sizing: border-box;
+box-sizing: border-box;
+}
+#slider {
+max-width: 600px;
+text-align: center;
+margin: 0 auto;
+}
+#overflow {
+width: 100%;
+overflow: hidden;
+}
+#slides .inner {
+width: 500%;
+}
+#slides .inner {
+-webkit-transform: translateZ(0);
+-moz-transform: translateZ(0);
+-o-transform: translateZ(0);
+-ms-transform: translateZ(0);
+transform: translateZ(0);
+-webkit-transition: all 800ms cubic-bezier(0.770, 0.000, 0.175, 1.000);
+-moz-transition: all 800ms cubic-bezier(0.770, 0.000, 0.175, 1.000);
+-o-transition: all 800ms cubic-bezier(0.770, 0.000, 0.175, 1.000);
+-ms-transition: all 800ms cubic-bezier(0.770, 0.000, 0.175, 1.000);
+transition: all 800ms cubic-bezier(0.770, 0.000, 0.175, 1.000);
+-webkit-transition-timing-function: cubic-bezier(0.770, 0.000, 0.175, 1.000);
+-moz-transition-timing-function: cubic-bezier(0.770, 0.000, 0.175, 1.000);
+-o-transition-timing-function: cubic-bezier(0.770, 0.000, 0.175, 1.000);
+-ms-transition-timing-function: cubic-bezier(0.770, 0.000, 0.175, 1.000);
+transition-timing-function: cubic-bezier(0.770, 0.000, 0.175, 1.000);
+}
+#slides img {
+width: 20%;
+height: 400px;
+float: left;
+}
+#slide1:checked ~ #slides .inner {
+margin-left: 0;
+}
+#slide2:checked ~ #slides .inner {
+margin-left: -100%;
+}
+#slide3:checked ~ #slides .inner {
+margin-left: -200%;
+}
+#slide4:checked ~ #slides .inner {
+margin-left: -300%;
+}
+#slide5:checked ~ #slides .inner {
+margin-left: -400%;
+}
+input[type="radio"] {
+display: none;
+}
+label {
+cursor: pointer;
+font-size: 0px;
+margin-right:5px;
+}
+#controler{
+width: 600px;
+overflow: hidden;
+text-align: initial;
+margin-top:5px;
+}
+
+#controler img{
+width: 110px;
+height: 75px;
+opacity:0.3;
+}
+
+</style>
 </head>
 <body>
 	<div id="slider">
@@ -97,11 +100,23 @@
 	      </div>
 	    </div>
 	  </div>
-	  <label for="slide1"></label>
-	  <label for="slide2"></label>
-	  <label for="slide3"></label>
-	  <label for="slide4"></label>
-	  <label for="slide5"></label>
+	   <div id="controler">
+	      <label for="slide1">
+		<img class="lazy" data-original="images/1.jpg">
+	      </label>
+	      <label for="slide2">
+		<img class="lazy" data-original="images/2.jpg">
+	      </label>
+	      <label for="slide3">
+		<img class="lazy" data-original="images/3.jpg">
+	      </label>
+	      <label for="slide4">
+		<img class="lazy" data-original="images/4.jpg">
+	      </label>
+	      <label for="slide5">
+		<img class="lazy" data-original="images/5.jpg">
+	      </label>
+	    </div>
 	</div>
 </body>
 </html>
